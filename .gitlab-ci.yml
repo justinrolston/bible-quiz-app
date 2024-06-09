@@ -1,5 +1,38 @@
-# The Docker image that will be used to build your app
-image: .gitlab-ci.yml
-# Functions that should be executed before the build script is run
-before_script:
-  - npm ci
+stages:
+  - test
+  - deploy
+
+unit-test:
+  image: node:latest
+  stage: test
+  before_script:
+    - npm install
+  script:
+    - npm run test:ci
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+  artifacts:
+    paths:
+      - coverage/
+    when: always
+    reports:
+      junit:
+        - junit.xml
+
+# ex. https://dev.to/jtorbett23/react-gitlab-pages-42l6
+pages:
+  image: node:latest
+  stage: deploy
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm install
+    - npm run build
+    - rm -rf public
+    - cp build/index.html build/404.html
+    - mv build public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
