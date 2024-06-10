@@ -8,7 +8,7 @@ unit-test:
   before_script:
     - npm install
   script:
-    - CI=true npm test
+    - npm ci
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   artifacts:
     paths:
