@@ -30,7 +30,7 @@ pages:
     - npm update
     - npm run build
     - rm -rf public
-    - cp build/index.html build/404.html
+    - cp dist/index.html dist/404.html
     - mv dist public
   artifacts:
     paths:
