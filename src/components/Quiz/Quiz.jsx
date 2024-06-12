@@ -74,21 +74,17 @@ const Quiz = () => {
 
   if (showScore) {
     return (
-      <div className="quiz-container">
-        <QuizScore score={score} currentQuestionIndex={currentQuestionIndex} />
-      </div>
+      <QuizScore score={score} currentQuestionIndex={currentQuestionIndex} />
     );
   } else {
     return (
-      <div className="quiz-container">
-        <QuizQuestion
-          question={question}
-          options={options}
-          selectedOption={selectedOption}
-          onOptionClick={handleOptionClick}
-          onNextQuestion={handleNextQuestion}
-        />
-      </div>
+      <QuizQuestion
+        question={question}
+        options={options}
+        selectedOption={selectedOption}
+        onOptionClick={handleOptionClick}
+        onNextQuestion={handleNextQuestion}
+      />
     );
   }
 };

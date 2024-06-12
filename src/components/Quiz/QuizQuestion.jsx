@@ -1,6 +1,6 @@
 export default function QuizQuestion(props) {
   return (
-    <>
+    <div className="quiz-container">
       <div className="question-section">
         <h2 dangerouslySetInnerHTML={{ __html: props.question }}></h2>
       </div>
@@ -24,6 +24,6 @@ export default function QuizQuestion(props) {
       >
         {props.QuizQuestioncurrentQuestionIndex === 9 ? "Finish" : "Next"}
       </button>
-    </>
+    </div>
   );
 }
