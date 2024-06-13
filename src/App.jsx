@@ -3,7 +3,7 @@ import Quiz from "./components/Quiz/Quiz.jsx";
 import { generateQuestions } from "./components/Quiz/utils/generateQuestions.js";
 
 function App() {
-  const questions = generateQuestions(3);
+  const questions = generateQuestions(10);
 
   return (
     <div className="App">

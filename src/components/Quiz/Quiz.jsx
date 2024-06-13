@@ -17,7 +17,6 @@ const Quiz = ({ questions }) => {
     }
 
     if (!isLastQuestion) {
-      // Set a limit for the number of questions
       setCurrentQuestionIndex((nextQuestionIndex) => nextQuestionIndex + 1);
       setSelectedOption(null);
     } else {
@@ -34,7 +33,7 @@ const Quiz = ({ questions }) => {
         options={options}
         selectedOption={selectedOption}
         isLastQuestion={isLastQuestion}
-        numberOfQuestions={numberOfQuestions}
+        currentQuestionIndex={currentQuestionIndex}
         onOptionClick={setSelectedOption}
         onNextQuestion={handleNextQuestion}
       />

@@ -1,6 +1,6 @@
 import bibleBooks from "../../Data/bibleBooks";
 
-export function generateQuestions(numberOfQuestions) {
+export function generateQuestions(numberOfQuestions, numberOfOptions = 2) {
   const questions = [];
 
   for (let index = 0; index < numberOfQuestions; index++) {
@@ -34,7 +34,7 @@ export function generateQuestions(numberOfQuestions) {
       .filter((b) => b !== answer)
       .sort(() => 0.5 - Math.random());
 
-    const options = [answer, ...optionsPool.slice(0, 3)].sort(
+    const options = [answer, ...optionsPool.slice(0, numberOfOptions)].sort(
       () => 0.5 - Math.random()
     );
 
