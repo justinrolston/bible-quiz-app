@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Bible Books Quiz</h1>
+      <h1>Bible Quiz</h1>
       <Quiz questions={questions} />
     </div>
   );
