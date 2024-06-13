@@ -22,7 +22,9 @@ export default function QuizQuestion(props) {
         className="next-button"
         disabled={!props.selectedOption}
       >
-        {props.QuizQuestioncurrentQuestionIndex === 9 ? "Finish" : "Next"}
+        {props.QuizQuestioncurrentQuestionIndex - 1 === props.numberOfQuestions
+          ? "Finish"
+          : "Next"}
       </button>
     </div>
   );

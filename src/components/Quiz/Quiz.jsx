@@ -8,6 +8,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const numberOfQuestions = 3;
 
   const generateQuestion = () => {
     const bookIndex = Math.floor(Math.random() * bibleBooks.length);
@@ -60,7 +61,7 @@ const Quiz = () => {
     }
 
     const nextQuestionIndex = currentQuestionIndex + 1;
-    if (nextQuestionIndex <= 3) {
+    if (nextQuestionIndex <= numberOfQuestions) {
       // Set a limit for the number of questions
       setCurrentQuestionIndex(nextQuestionIndex);
       setCurrentQuestion(generateQuestion);
@@ -82,6 +83,7 @@ const Quiz = () => {
         question={question}
         options={options}
         selectedOption={selectedOption}
+        numberOfQuestions={numberOfQuestions}
         onOptionClick={handleOptionClick}
         onNextQuestion={handleNextQuestion}
       />
