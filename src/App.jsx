@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import Quiz from "./components/Quiz/Quiz.jsx";
 import { generateQuestions } from "./components/Quiz/utils/generateQuestions.js";
