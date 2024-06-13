@@ -2,7 +2,7 @@ export default function QuizScore(props) {
   return (
     <div className="quiz-container">
       <div className="score-section">
-        You scored {props.score} out of {props.currentQuestionIndex + 1}
+        You scored {props.score} out of {props.numberOfQuestions}
       </div>
       <button
         onClick={() => (window.location = window.location)}

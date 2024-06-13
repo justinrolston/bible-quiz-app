@@ -37,7 +37,6 @@ const Quiz = () => {
           : bibleBooks[bookIndex - 1];
     }
 
-    console.log(answer);
     const optionsPool = bibleBooks
       .filter((b) => b !== answer)
       .sort(() => 0.5 - Math.random());
@@ -51,17 +50,13 @@ const Quiz = () => {
 
   const [currentQuestion, setCurrentQuestion] = useState(generateQuestion);
 
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-  };
-
   const handleNextQuestion = () => {
     if (selectedOption === currentQuestion.answer) {
       setScore(score + 1);
     }
 
     const nextQuestionIndex = currentQuestionIndex + 1;
-    if (nextQuestionIndex <= numberOfQuestions) {
+    if (nextQuestionIndex < numberOfQuestions) {
       // Set a limit for the number of questions
       setCurrentQuestionIndex(nextQuestionIndex);
       setCurrentQuestion(generateQuestion);
@@ -74,17 +69,16 @@ const Quiz = () => {
   const { options, question } = currentQuestion;
 
   if (showScore) {
-    return (
-      <QuizScore score={score} currentQuestionIndex={currentQuestionIndex} />
-    );
+    return <QuizScore score={score} numberOfQuestions={numberOfQuestions} />;
   } else {
     return (
       <QuizQuestion
         question={question}
         options={options}
         selectedOption={selectedOption}
+        isLastQuestion={numberOfQuestions === currentQuestionIndex + 1}
         numberOfQuestions={numberOfQuestions}
-        onOptionClick={handleOptionClick}
+        onOptionClick={setSelectedOption}
         onNextQuestion={handleNextQuestion}
       />
     );
