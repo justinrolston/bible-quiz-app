@@ -87,7 +87,8 @@
 }
 
 .next-button:disabled {
-  opacity: 0.5;
+  visibility: hidden;
+  cursor: not-allowed;
 }
 
 .next-button:hover {
@@ -98,3 +99,63 @@
   font-size: 24px;
   padding-bottom: 24px;
 }
+
+
+
+
+/* Navbar_____________________________________________________________ */
+/* Navbar styles */
+.navbar-container {
+  background: #333;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-link {
+  margin: 0 15px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: #333;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .nav-links.open {
+    left: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Button styles */
+.next-button:disabled {
+  opacity: 0.05;
+  cursor: not-allowed;
+}
+
+/* Navbar_____________________________________________________________ */
