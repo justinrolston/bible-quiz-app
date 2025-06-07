@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <h1>Bible Quiz</h1>
       <Quiz questions={questions} />
     </div>
