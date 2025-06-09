@@ -13,6 +13,18 @@ const NavbarContainer = styled.div`
   color: #fff;
 `;
 
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+const LogoIcon = styled.img`
+  width: 28px;
+  height: 28px;
+  filter: invert(1);
+`;
+
 const NavLinks = styled.ul`
   display: flex;
   list-style: none;
@@ -75,7 +87,12 @@ const Navbar = () => {
 
   return (
     <NavbarContainer>
-      <h1>Bible Quiz</h1>
+      <LogoContainer>
+        <LogoIcon src="/bibleicon.svg" alt="Bible Icon" />
+        <StyledLink to="/">
+          <h1>Bible Quiz</h1>
+        </StyledLink>
+      </LogoContainer>
       <Hamburger onClick={handleToggle}>
         {open ? <FaTimes /> : <FaBars />}
       </Hamburger>
