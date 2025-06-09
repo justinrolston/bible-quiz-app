@@ -16,12 +16,14 @@ const Quiz = ({ questions }) => {
       setScore(score + 1);
     }
 
-    if (!isLastQuestion) {
-      setCurrentQuestionIndex((nextQuestionIndex) => nextQuestionIndex + 1);
-      setSelectedOption(null);
-    } else {
-      setShowScore(true);
-    }
+    setTimeout(() => {
+      if (!isLastQuestion) {
+        setCurrentQuestionIndex((nextQuestionIndex) => nextQuestionIndex + 1);
+        setSelectedOption(null);
+      } else {
+        setShowScore(true);
+      }
+    }, 100);
   };
 
   if (showScore) {

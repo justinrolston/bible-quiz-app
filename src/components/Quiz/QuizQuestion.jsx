@@ -1,4 +1,11 @@
 export default function QuizQuestion(props) {
+  const handleOptionClick = (option) => {
+    props.onOptionClick(option);
+    setTimeout(() => {
+      props.onNextQuestion();
+    }, 500);
+  };
+
   return (
     <div className="quiz-container">
       <div className="question-section">
@@ -15,19 +22,13 @@ export default function QuizQuestion(props) {
             className={`option-button ${
               props.selectedOption === option ? "selected" : ""
             }`}
-            onClick={() => props.onOptionClick(option)}
+            onClick={() => handleOptionClick(option)}
+            disabled={props.selectedOption !== null}
           >
             {option}
           </button>
         ))}
       </div>
-      <button
-        onClick={props.onNextQuestion}
-        className="next-button"
-        disabled={!props.selectedOption}
-      >
-        {props.isLastQuestion ? "Finish" : "Next"}
-      </button>
     </div>
   );
 }
