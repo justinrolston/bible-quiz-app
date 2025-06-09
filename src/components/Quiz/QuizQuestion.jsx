@@ -2,7 +2,7 @@ export default function QuizQuestion(props) {
   const handleOptionClick = (option) => {
     props.onOptionClick(option);
     setTimeout(() => {
-      props.onNextQuestion();
+      props.onNextQuestion(option);
     }, 500);
   };
 

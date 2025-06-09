@@ -11,8 +11,8 @@ const Quiz = ({ questions }) => {
   const isLastQuestion = numberOfQuestions === currentQuestionIndex + 1;
   const { options, question, answer } = questions[currentQuestionIndex];
 
-  const handleNextQuestion = () => {
-    if (selectedOption === answer) {
+  const handleNextQuestion = (selectedAnswer) => {
+    if (selectedAnswer === answer) {
       setScore(score + 1);
     }
 
