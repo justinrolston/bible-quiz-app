@@ -1,11 +1,11 @@
 import bibleBooks from "../../Data/bibleBooks";
 
-export function generateQuestions(numberOfQuestions, numberOfOptions = 2) {
+export function generateQuestions(numberOfQuestions, numberOfOptions = 2, bookList = bibleBooks) {
   const questions = [];
 
   for (let index = 0; index < numberOfQuestions; index++) {
-    const bookIndex = Math.floor(Math.random() * bibleBooks.length);
-    const book = bibleBooks[bookIndex];
+    const bookIndex = Math.floor(Math.random() * bookList.length);
+    const book = bookList[bookIndex];
     const questionType =
       Math.random() > 0.5 && bookIndex > 0 ? "before" : "after";
 
@@ -14,10 +14,10 @@ export function generateQuestions(numberOfQuestions, numberOfOptions = 2) {
 
     if (questionType === "before" && bookIndex > 0) {
       question = `What book comes <u>before</u> ${book}?`;
-      answer = bibleBooks[bookIndex - 1];
-    } else if (questionType === "after" && bookIndex < bibleBooks.length - 1) {
+      answer = bookList[bookIndex - 1];
+    } else if (questionType === "after" && bookIndex < bookList.length - 1) {
       question = `What book comes <u>after</u> ${book}?`;
-      answer = bibleBooks[bookIndex + 1];
+      answer = bookList[bookIndex + 1];
     } else {
       // If it's the first or last book, ask the opposite question
       question =
@@ -26,11 +26,11 @@ export function generateQuestions(numberOfQuestions, numberOfOptions = 2) {
           : `What book comes before ${book}?`;
       answer =
         questionType === "before"
-          ? bibleBooks[bookIndex + 1]
-          : bibleBooks[bookIndex - 1];
+          ? bookList[bookIndex + 1]
+          : bookList[bookIndex - 1];
     }
 
-    const optionsPool = bibleBooks
+    const optionsPool = bookList
       .filter((b) => b !== answer)
       .sort(() => 0.5 - Math.random());
 
