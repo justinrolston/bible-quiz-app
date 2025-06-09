@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
 const NavbarContainer = styled.div`
   background: #333;
@@ -37,6 +38,25 @@ const NavLink = styled.li`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  padding-bottom: 4px;
+
+  &:hover {
+    color: #ccc;
+  }
+
+  ${({ $isActive }) =>
+    $isActive &&
+    `
+    color:rgb(216, 127, 92);
+    border-bottom: 2px solid rgb(216, 127, 92);
+  `}
+`;
+
 const Hamburger = styled.div`
   display: none;
   @media (max-width: 768px) {
@@ -47,6 +67,7 @@ const Hamburger = styled.div`
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   const handleToggle = () => {
     setOpen(!open);
@@ -54,15 +75,26 @@ const Navbar = () => {
 
   return (
     <NavbarContainer>
-      <h1>Logo</h1>
+      <h1>Bible Quiz</h1>
       <Hamburger onClick={handleToggle}>
         {open ? <FaTimes /> : <FaBars />}
       </Hamburger>
       <NavLinks open={open}>
-        <NavLink>Home</NavLink>
-        <NavLink>About</NavLink>
-        <NavLink>Services</NavLink>
-        <NavLink>Contact</NavLink>
+        <NavLink>
+          <StyledLink to="/" $isActive={location.pathname === "/"}>
+            All Books
+          </StyledLink>
+        </NavLink>
+        <NavLink>
+          <StyledLink to="/ot" $isActive={location.pathname === "/ot"}>
+            Old Testament
+          </StyledLink>
+        </NavLink>
+        <NavLink>
+          <StyledLink to="/nt" $isActive={location.pathname === "/nt"}>
+            New Testament
+          </StyledLink>
+        </NavLink>
       </NavLinks>
     </NavbarContainer>
   );
