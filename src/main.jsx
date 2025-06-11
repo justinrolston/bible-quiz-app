@@ -11,7 +11,9 @@ const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/ot", element: <OldTestament /> },
   { path: "/nt", element: <NewTestament /> },
-]);
+], {
+  basename: "/bible-quiz-app"
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
