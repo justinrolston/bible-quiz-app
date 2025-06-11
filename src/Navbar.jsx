@@ -88,7 +88,7 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <LogoContainer>
-        <LogoIcon src="/bibleicon.svg" alt="Bible Icon" />
+        <LogoIcon src="./bibleicon.svg" alt="Bible Icon" />
         <StyledLink to="/">
           <h1>Bible Quiz</h1>
         </StyledLink>
