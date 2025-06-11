@@ -56,3 +56,9 @@ This is a React-based Bible quiz application built with Vite. The app generates 
 
 ### Question Logic
 Questions ask "What book comes before/after [book]?" with randomized multiple choice options. The `generateQuestions` function handles edge cases for first/last books automatically.
+
+## Rule to Follow
+- Always write secure best practice javascript code
+- Always write tests for new functions and features
+- Always use GitHub Actions for CI/CD
+- Always use GitHub Pages for deployment
